@@ -39,13 +39,13 @@ $("#add-train-btn").on("click", function(event) {
   console.log(newTrain.time);
   console.log(newTrain.frequency);
 
-  /*alert("Employee successfully added");
+  alert("Train successfully added");
 
   // Clears all of the text-boxes
-  $("#employee-name-input").val("");
-  $("#role-input").val("");
-  $("#start-input").val("");
-  $("#rate-input").val("");
+  $("#train-name-input").val("");
+  $("#destination-input").val("");
+  $("#first-time-input").val("");
+  $("#frequency-input").val("");
 });
 
 // 3. Create Firebase event for adding employee to the database and a row in the html when a user adds an entry
@@ -54,38 +54,37 @@ database.ref().on("child_added", function(childSnapshot) {
 
   // Store everything into a variable.
   var empName = childSnapshot.val().name;
-  var empRole = childSnapshot.val().role;
-  var empStart = childSnapshot.val().start;
-  var empRate = childSnapshot.val().rate;
+  var empDestination = childSnapshot.val().role;
+  var empTime = childSnapshot.val().start;
+  var empFrequency = childSnapshot.val().rate;
 
   // Employee Info
   console.log(empName);
-  console.log(empRole);
-  console.log(empStart);
-  console.log(empRate);
+  console.log(empDestination);
+  console.log(empTime);
+  console.log(empFrequency);
 
   // Prettify the employee start
-  var empStartPretty = moment.unix(empStart).format("MM/DD/YYYY");
+  //var empStartPretty = moment.unix(empStart).format("MM/DD/YYYY");
 
   // Calculate the months worked using hardcore math
   // To calculate the months worked
-  var empMonths = moment().diff(moment(empStart, "X"), "months");
-  console.log(empMonths);
+ // var empMonths = moment().diff(moment(empStart, "X"), "months");
+  //console.log(empMonths);
 
   // Calculate the total billed rate
-  var empBilled = empMonths * empRate;
-  console.log(empBilled);
+ // var empBilled = empMonths * empRate;
+ // console.log(empBilled);
 
   // Create the new row
   var newRow = $("<tr>").append(
     $("<td>").text(empName),
-    $("<td>").text(empRole),
-    $("<td>").text(empStartPretty),
-    $("<td>").text(empMonths),
-    $("<td>").text(empRate),
-    $("<td>").text(empBilled)
+    $("<td>").text(empDestination),
+    $("<td>").text(empTime),
+    $("<td>").text(empFrequency)
+   
   );
 
   // Append the new row to the table
-  $("#employee-table > tbody").append(newRow); */
+  $("#employee-table > tbody").append(newRow); 
 });
